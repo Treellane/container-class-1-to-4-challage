@@ -1,0 +1,20 @@
+$class-name: container;   /*setting up a class name for container*/
+
+$colors: #aaa, #bbb, #ccc, #ddd; /*making a list of 4 colours, this is easier */
+                                 /* then listing them on 4 differnet lines */
+
+.basic-container {
+    width: 200px;      /*our base container */
+    height: 100px;
+    border: none;
+    margin: 20px;
+    padding: 20px;
+}
+
+
+@each $color in $colors {         /*this code cretes the 1 to 4 iteration that will prodice the */
+    $i: index($colors, $color);   /* CSS code for container-1, container-2, container-3 and container-4*/
+    .container-#{$i} {            /* each with its own colur (1 through 4) pulled from the $colors list */
+        background-color: $color;
+    }
+}
